@@ -1,0 +1,49 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">E-Kosan</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <% if @session_user == "0" %>
+              <li><%= link_to 'Home' , controller: 'home' %></li>
+              <li><%= link_to 'Daftar Kosan' , controller: 'kosan' %></li>
+              <li class="active"><%= link_to 'About' , controller: 'about' %></li>
+              <li><%= link_to 'Login' , {controller: "user", action: "login"} %></li>
+            <% else %>
+              <li><%= link_to 'Home' , controller: 'home' %></li>
+              <li><%= link_to 'Daftar Kosan' , controller: 'kosan' %></li>
+              <li><td><%= link_to 'Tambah Kosan', kosan_path('new') %></td></li>
+              <li class="active"><%= link_to 'About' , controller: 'about' %></li>
+              <li><%= link_to 'Logout' , {controller: "user", action: "logout"} %></li>
+            <% end %>
+          </ul>
+      </div>
+    </div>
+</nav>
+<div class="container">
+          <div class="row">
+              <div class="col-lg-12">
+                  <h1 class="page-header">About E-Kosan
+                  </h1>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-8">
+                  <img class="img-responsive" src="http://rumahdijual.org/athumb/6/f/8/big380398.jpg" alt=""/>
+              </div>
+              <div class="col-md-4">
+                  <h3>Tentang E-Kosan</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              </div>
+          </div>
+          <hr/>
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; E-KosanKu</p>
+                </div>
+            </div>
+        </footer>
+        </div>

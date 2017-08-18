@@ -1,0 +1,56 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">E-Kosan</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <% if @session_user == "0" %>
+              <li><%= link_to 'Home' , controller: 'home' %></li>
+              <li class="active"><%= link_to 'Daftar Kosan' , controller: 'kosan' %></li>
+              <li><%= link_to 'About' , controller: 'about' %></li>
+              <li><%= link_to 'Login' , {controller: "user", action: "login"} %></li>
+            <% else %>
+              <li><%= link_to 'Home' , controller: 'home' %></li>
+              <li class="active"><%= link_to 'Daftar Kosan' , controller: 'kosan' %></li>
+              <li><td><%= link_to 'Tambah Kosan', kosan_path('new') %></td></li>
+              <li><%= link_to 'About' , controller: 'about' %></li>
+              <li><%= link_to 'Logout' , {controller: "user", action: "logout"} %></li>
+            <% end %>
+          </ul>
+      </div>
+    </div>
+</nav>
+<div class="container">
+  <div class="row">
+      <div class="col-lg-12">
+          <h1 class="page-header"><%= @kosan.nama %>
+          </h1>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-8">
+          <%= image_tag("/uploads/#{@kosan.gambar}") %>
+      </div>
+      <div class="col-md-4">
+          <h3>Deskripsi Kosan</h3>
+          <p><%= @kosan.deskripsi %></p>
+          <hr/>
+          <h3>Harga</h3>
+          <p><%= @kosan.harga %></p>
+          <hr/>
+          <h3>Kontak</h3>
+          <p><%= @kosan.kontak %></p>
+          <hr/>
+          <h3>Lokasi</h3>
+          <p><%= @kosan.lokasi %></p>
+      </div>
+  </div>
+  <footer>
+      <div class="row">
+          <div class="col-lg-12">
+              <p>Copyright &copy; E-KosanKu</p>
+          </div>
+      </div>
+  </footer>
+</div>

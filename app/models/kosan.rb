@@ -1,0 +1,2 @@
+class Kosan < ApplicationRecord
+end

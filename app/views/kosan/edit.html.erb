@@ -1,0 +1,50 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">E-Kosan</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+              <li><%= link_to 'Home' , controller: 'home' %></li>
+              <li><%= link_to 'Daftar Kosan' , controller: 'kosan' %></li>
+              <li class="active"><td><%= link_to 'Tambah Kosan', kosan_path('new') %></td></li>
+              <li><%= link_to 'About' , controller: 'about' %></li>
+              <li><%= link_to 'Logout' , {controller: "user", action: "logout"} %></li>
+          </ul>
+      </div>
+    </div>
+</nav>
+<div class="container">
+  <div class="row">
+      <div class="col-sm-8">
+          <h4 class="page-header">Tambah Kosan</h4>
+          <%= form_for :kos , :url => { :action => :update}, :method => :put do |f| %>
+              <div class="form-group float-label-control">
+                <%= f.label :nama %><br>
+                <%= f.text_field :nama, class:"form-control", value: @kosan.nama  %>
+              </div>
+              <div class="form-group float-label-control">
+                <%= f.label :lokasi %><br>
+                <%= f.text_field :lokasi, class:"form-control", value:@kosan.lokasi %>
+              </div>
+              <div class="form-group float-label-control">
+                <%= f.label :deskripsi %><br>
+                <%= f.text_field :deskripsi, class:"form-control", value:@kosan.deskripsi %>
+              </div>
+              <div class="form-group float-label-control">
+                <%= f.label :harga %><br>
+                <%= f.text_field :harga, class:"form-control", value:@kosan.harga %>
+              </div>
+              <div class="form-group float-label-control">
+                <%= f.label :gambar %><br>
+                <%= f.text_field :gambar, class:"form-control", value:@kosan.gambar %>
+              </div>
+              <div class="form-group float-label-control">
+                <%= f.label :kontak %><br>
+                <%= f.text_field :kontak, class:"form-control", value:@kosan.kontak %>
+              </div>
+              <%= f.submit %>
+          <% end %>
+      </div>
+  </div>
+</div>
